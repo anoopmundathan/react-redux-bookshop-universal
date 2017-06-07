@@ -18,8 +18,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "webpack",
-    "start": "nodemon ./server/index.js"
+    "prestart": "webpack -p",
+    "start": "node ./server/index.js",
+    "dev": "webpack -w & nodemon ./server/index.js"
   },
   "keywords": [],
   "author": "Anoop Mundathan <anoop.mundathan@gmail.com> (http://anoopmundathan.me/)",
