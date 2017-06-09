@@ -19,6 +19,4 @@ Server.prototype.listen = function() {
 	});
 }
 
-console.log(path.resolve(__dirname, '..', 'public'));
-
 module.exports = Server;
