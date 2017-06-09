@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "v7.0.0"
+  },
   "dependencies": {
     "babel-core": "6.24.1",
     "babel-loader": "7.0.0",
@@ -11,11 +14,10 @@
     "express": "4.15.3",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "redux": "3.6.0"
+    "redux": "3.6.0",
+    "webpack": "2.6.1"
   },
-  "devDependencies": {
-    "webpack": "3.0.0-rc.1"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "webpack -p",
