@@ -22083,16 +22083,46 @@ var App = function (_Component) {
 	function App() {
 		_classCallCheck(this, App);
 
-		return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+		_this.state = {
+			persons: []
+		};
+		return _this;
 	}
 
 	_createClass(App, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			var _this2 = this;
+
+			fetch('/api').then(function (data) {
+				return data.json();
+			}).then(function (persons) {
+				return _this2.setState({
+					persons: _this2.state.persons.concat(persons)
+				});
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var list = this.state.persons.map(function (p) {
+				var key = Math.floor(Math.random() * 100);
+				return _react2.default.createElement(
+					'li',
+					{ key: key },
+					p.firstname + p.lastname
+				);
+			});
 			return _react2.default.createElement(
 				'div',
 				null,
-				'Hello World'
+				_react2.default.createElement(
+					'ul',
+					null,
+					list
+				)
 			);
 		}
 	}]);
