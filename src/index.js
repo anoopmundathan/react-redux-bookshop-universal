@@ -6,9 +6,10 @@ import {createStore} from 'redux';
 import reducers from './reducers';
 import App from './components/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import {postBooks, deleteBooks, updateBooks} from './actions/bookActions';
+import {addToCart} from './actions/cartActions.js';
 
-// STEP3 : Define reducer
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // STEP1 : Create Store
 const store = createStore(reducers);
@@ -17,9 +18,8 @@ store.subscribe(function() {
 })
 
 // STEP2 : Create and dispatch action
-store.dispatch({
-	type: 'POST_BOOK',
-	payload: [
+store.dispatch(postBooks(
+	[
 		{
     		id: 1,
     		title:'this is the book title',
@@ -39,26 +39,17 @@ store.dispatch({
     		price: 60
 		}
 	]
-});
+));
 
-store.dispatch({
-	type: 'DELETE_BOOK',
-	payload: { 
-		id: 2 
-	}
-});
+store.dispatch(deleteBooks({ id: 2 }));
 
-store.dispatch({
-	type: 'UPDATE_BOOK',
-	payload:  { 
-		id: 3,
-    	title:'Learn React in 30h'
-	}
-});
+store.dispatch(updateBooks({
+	id: 3,
+    title: 'Harry Potter'
+}));
 
-store.dispatch({
-	type: 'POST_BOOK',
-	payload: [
+store.dispatch(postBooks(
+	[
 		{
     		id: 4,
     		title:'this is the fourth book title',
@@ -66,9 +57,6 @@ store.dispatch({
     		price: 23.33
 		}
 	]
-});
+));
 
-store.dispatch({
-	type: 'ADD_TO_CART',
-	payload: {id: 4}
-});
+store.dispatch(addToCart({id: 4}));
