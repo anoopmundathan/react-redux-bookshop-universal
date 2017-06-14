@@ -10085,86 +10085,7 @@ exports.compose = _compose2.default;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(50);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var App = function (_Component) {
-	_inherits(App, _Component);
-
-	function App() {
-		_classCallCheck(this, App);
-
-		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
-
-		_this.state = {
-			persons: []
-		};
-		return _this;
-	}
-
-	_createClass(App, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			var _this2 = this;
-
-			fetch('/api').then(function (data) {
-				return data.json();
-			}).then(function (persons) {
-				return _this2.setState({
-					persons: _this2.state.persons.concat(persons)
-				});
-			});
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var list = this.state.persons.map(function (p) {
-				var key = Math.floor(Math.random() * 100);
-				return _react2.default.createElement(
-					'li',
-					{ key: key },
-					p.firstname + p.lastname
-				);
-			});
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(
-					'ul',
-					null,
-					list
-				)
-			);
-		}
-	}]);
-
-	return App;
-}(_react.Component);
-
-exports.default = App;
-
-/***/ }),
+/* 89 */,
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23349,9 +23270,9 @@ var _reducers = __webpack_require__(205);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
-var _App = __webpack_require__(89);
+var _bookList = __webpack_require__(212);
 
-var _App2 = _interopRequireDefault(_App);
+var _bookList2 = _interopRequireDefault(_bookList);
 
 var _bookActions = __webpack_require__(208);
 
@@ -23359,7 +23280,7 @@ var _cartActions = __webpack_require__(209);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
+_reactDom2.default.render(_react2.default.createElement(_bookList2.default, null), document.getElementById('root'));
 
 // STEP1 : Create Store
 var middleware = (0, _redux.applyMiddleware)(_reduxLogger2.default);
@@ -23846,6 +23767,61 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   };e.defaults = L, e.createLogger = S, e.logger = T, e.default = T, Object.defineProperty(e, "__esModule", { value: !0 });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(86)))
+
+/***/ }),
+/* 211 */,
+/* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(50);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BookList = function (_Component) {
+	_inherits(BookList, _Component);
+
+	function BookList() {
+		_classCallCheck(this, BookList);
+
+		return _possibleConstructorReturn(this, (BookList.__proto__ || Object.getPrototypeOf(BookList)).apply(this, arguments));
+	}
+
+	_createClass(BookList, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'h1',
+					null,
+					'Hello React'
+				)
+			);
+		}
+	}]);
+
+	return BookList;
+}(_react.Component);
+
+exports.default = BookList;
 
 /***/ })
 /******/ ]);
