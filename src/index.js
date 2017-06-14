@@ -68,3 +68,7 @@ store.dispatch({
 	]
 });
 
+store.dispatch({
+	type: 'ADD_TO_CART',
+	payload: {id: 4}
+});
