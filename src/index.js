@@ -2,7 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
+import logger from 'redux-logger';
+
 import reducers from './reducers';
 import App from './components/App';
 
@@ -12,7 +14,9 @@ import {addToCart} from './actions/cartActions.js';
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // STEP1 : Create Store
-const store = createStore(reducers);
+const middleware = applyMiddleware(logger);
+const store = createStore(reducers, middleware);
+
 store.subscribe(function() {
 	console.log('current state is :', store.getState());
 })
