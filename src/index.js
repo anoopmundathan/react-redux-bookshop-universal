@@ -3,42 +3,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {createStore} from 'redux';
-
+import reducers from './reducers';
 import App from './components/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // STEP3 : Define reducer
-const reducer = function(state={books:[]}, action) {
-	switch(action.type) {
-		case 'POST_BOOK':
-			return {books: [...state.books, ...action.payload]}
-			break;
-		case 'DELETE_BOOK':
-			const currentBookToDelete = [...state.books];
-			const indexToDelete = currentBookToDelete.findIndex(book => book.id === action.payload.id);
-			return {
-				books: [...currentBookToDelete.slice(0, indexToDelete),
-				...currentBookToDelete.slice(indexToDelete + 1)]
-			}
-			break;
-		case 'UPDATE_BOOK':
-			const currentBookToUpdate = [...state.books];
-			const indexToUpdate = currentBookToUpdate.findIndex(book => book.id === action.payload.id);
-			const newBookToUpdate = Object.assign({}, currentBookToUpdate[indexToUpdate], {
-				title: action.payload.title
-			});
-
-			return {
-				books: [...currentBookToUpdate.slice(0, indexToUpdate),
-				newBookToUpdate, ...currentBookToUpdate.slice(indexToUpdate + 1)]
-			}
-			break;
-	}
-}
 
 // STEP1 : Create Store
-const store = createStore(reducer);
+const store = createStore(reducers);
 store.subscribe(function() {
 	console.log('current state is :', store.getState());
 })
@@ -81,4 +54,17 @@ store.dispatch({
 		id: 3,
     	title:'Learn React in 30h'
 	}
-})
+});
+
+store.dispatch({
+	type: 'POST_BOOK',
+	payload: [
+		{
+    		id: 4,
+    		title:'this is the fourth book title',
+    		description: 'this is the book',
+    		price: 23.33
+		}
+	]
+});
+
