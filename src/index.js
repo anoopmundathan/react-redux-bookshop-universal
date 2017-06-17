@@ -1,66 +1,47 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import {render} from 'react-dom';
+import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
 import logger from 'redux-logger';
-
 import reducers from './reducers';
+import {postBooks, deleteBooks, updateBooks} from './actions/bookActions';
+import {addToCart} from './actions/cartActions';
+
 import BookList from './components/pages/bookList';
 
-import {postBooks, deleteBooks, updateBooks} from './actions/bookActions';
-import {addToCart} from './actions/cartActions.js';
-
-ReactDOM.render(<BookList />, document.getElementById('root'));
-
-// STEP1 : Create Store
+// Create middleware
 const middleware = applyMiddleware(logger);
+
+// step1 : create store
 const store = createStore(reducers, middleware);
 
-store.subscribe(function() {
-	console.log('current state is :', store.getState());
-})
+store.dispatch(postBooks([
+	{
+		id: 1,
+		title: 'Harry Potter'
+	}
+]));
 
-// STEP2 : Create and dispatch action
-store.dispatch(postBooks(
-	[
-		{
-    		id: 1,
-    		title:'this is the book title',
-    		description: 'this is the book',
-    		price: 33.33
-		}, 
-		{
-			id: 2,
-			title:'this is the second book title',
-			description: 'this is the second book',
-    		price: 50
-		},
-		{
-			id: 3,
-			title:'this is the third book title',
-			description: 'this is the third book',
-    		price: 60
-		}
-	]
-));
+store.dispatch(postBooks([
+	{
+		id: 2,
+		title: 'Second Chance'
+	}
+]));
 
-store.dispatch(deleteBooks({ id: 2 }));
-
-store.dispatch(updateBooks({
-	id: 3,
-    title: 'Harry Potter'
+store.dispatch(deleteBooks({
+	id: 2
 }));
 
-store.dispatch(postBooks(
-	[
-		{
-    		id: 4,
-    		title:'this is the fourth book title',
-    		description: 'this is the book',
-    		price: 23.33
-		}
-	]
-));
+store.dispatch(updateBooks({
+	id: 1,
+	title: 'Harry Water'
+}));
 
-store.dispatch(addToCart({id: 4}));
+render(
+	<Provider store={store}>
+		<BookList />
+	</Provider>, document.getElementById('root')
+);
+
