@@ -5,6 +5,7 @@ import {postBooks, deleteBooks, updateBooks} from '../../actions/bookActions';
 
 import {Grid, Row, Col, Button} from 'react-bootstrap';
 import BookItem from './BookItem';
+import BookForm from './BookForm';
 
 class BookList extends Component {
 	
@@ -55,11 +56,12 @@ class BookList extends Component {
 				</Col>
 			)
 		});
-		
+
 		return(
 			<Grid>
 				<Row>
-					{booksList}			
+					<BookForm/>
+					{booksList}
 				</Row>
 			</Grid>
 		);
