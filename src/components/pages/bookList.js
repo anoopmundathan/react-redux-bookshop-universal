@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {postBooks, deleteBooks, updateBooks} from '../../actions/bookActions';
 
+import {Grid, Row, Col, Button} from 'react-bootstrap';
+import BookItem from './BookItem';
+
 class BookList extends Component {
 	
 	componentDidMount() {
@@ -14,7 +17,6 @@ class BookList extends Component {
 				price: 22.32
 			}
 		]);
-
 		this.props.postBooks([
 			{
 				id: 2,
@@ -23,7 +25,6 @@ class BookList extends Component {
 				price: 34.32
 			}
 		]);
-
 		this.props.postBooks([
 			{
 				id: 3,
@@ -32,11 +33,9 @@ class BookList extends Component {
 				price: 21.32
 			}
 		]);
-
 		this.props.deleteBooks({
 			id: 2
 		});
-
 		this.props.updateBooks({
 			id: 3,
 			title: 'Blood Blood'
@@ -46,20 +45,23 @@ class BookList extends Component {
 
 	render() {
 		const booksList = this.props.books.map(book => {
-			return(<div>
-				<h2>{book.id}</h2>
-				<h2>{book.title}</h2>
-				<h2>{book.description}</h2>
-				<h2>{book.price}</h2>
-			</div>)
+			return(
+				<Col xs={12} sm={6} md={4} key={book.id}>
+				<BookItem 
+					id={book.id} 
+					title={book.title} 
+					price={book.price} 
+					description={book.description} />
+				</Col>
+			)
 		});
-
+		
 		return(
-			<div>
-				<ul>
-					{booksList}
-				</ul>
-			</div>
+			<Grid>
+				<Row>
+					{booksList}			
+				</Row>
+			</Grid>
 		);
 	}
 }
