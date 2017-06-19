@@ -60,7 +60,9 @@ class BookList extends Component {
 		return(
 			<Grid>
 				<Row>
-					<BookForm/>
+					<Col xs={12} sm={6}>
+						<BookForm/>
+					</Col>
 					{booksList}
 				</Row>
 			</Grid>
