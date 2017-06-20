@@ -58,8 +58,6 @@ class BookForm extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({postBooks},dispatch)
-}
 
+const mapDispatchToProps = dispatch => bindActionCreators({postBooks}, dispatch);
 export default connect(null,mapDispatchToProps)(BookForm);

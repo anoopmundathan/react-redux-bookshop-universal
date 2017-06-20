@@ -20,4 +20,3 @@ render(
 		<BookList />
 	</Provider>, document.getElementById('root')
 );
-
