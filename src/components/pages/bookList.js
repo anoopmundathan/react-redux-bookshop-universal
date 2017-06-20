@@ -6,6 +6,7 @@ import {postBooks, deleteBooks, updateBooks} from '../../actions/bookActions';
 import {Grid, Row, Col, Button} from 'react-bootstrap';
 import BookItem from './BookItem';
 import BookForm from './BookForm';
+import Cart from '../Cart';
 
 class BookList extends Component {
 	
@@ -60,6 +61,9 @@ class BookList extends Component {
 		return(
 			<Grid>
 				<Row>
+					<Cart/>
+				</Row>
+				<Row>
 					<Col xs={12} sm={6}>
 						<BookForm/>
 					</Col>
@@ -76,7 +80,7 @@ const mapStateToProps = state => (
 	} 
 );
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
 		postBooks: postBooks,
 		deleteBooks: deleteBooks,

@@ -1,7 +1,12 @@
 const cartReducers = function(state={cart: []}, action) {
+	
+	console.log(action.payload);
+
 	switch(action.type) {
 		case 'ADD_TO_CART':
-			return {cart: [...state.cart, action.payload.id]};
+			return {
+				cart: [...action.payload]
+			};
 		default:
 			return state;
 	}
