@@ -27,8 +27,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "webpack -p",
-    "start": "node ./server/index.js",
+    "build": "NODE_ENV=production webpack -p --config webpack.config.js",
+    "start": "npm run build && node ./server/index.js",
     "dev": "webpack -w & nodemon ./server/index.js"
   },
   "keywords": [],
