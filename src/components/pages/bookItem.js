@@ -43,6 +43,5 @@ const mapStateToProps = state => (
 	}
 );
 
-
 const mapDispatchToProps = dispatch => bindActionCreators({addToCart}, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(BookItem);
