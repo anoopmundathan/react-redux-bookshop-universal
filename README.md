@@ -1,2 +1,2 @@
-# reactredux
-React Redux 
+# reactredux - WIP
+React Redux Shopping Cart Example  
