@@ -1,11 +1,11 @@
-# bookshop
-React Redux Bookshop App 
+# react-redux-bookshop
+> Created as part of Udemy React Redux Course 
 
 ## Getting Started
 ### Setup
 ```
-$ git clone https://github.com/anoopmundathan/bookshop.git
-$ cd bookshop
+$ git clone https://github.com/anoopmundathan/react-redux-bookshop
+$ cd react-redux-bookshop
 ```
 ### Building
 Install dependencies:
