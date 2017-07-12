@@ -4,7 +4,7 @@
 ## Getting Started
 ### Setup
 ```
-$ git clone https://github.com/anoopmundathan/react-redux-bookshop
+$ git clone https://github.com/anoopmundathan/react-redux-bookshop.git
 $ cd react-redux-bookshop
 ```
 ### Building
@@ -15,4 +15,4 @@ $ npm install
 #### npm scripts
 ```$ npm run dev``` - Run node server - webpack watch mode
 
-```$ npm start``` - Run node server - webpack production mode
+```$ npm run build``` - Run node server - webpack production mode
