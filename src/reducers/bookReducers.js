@@ -1,5 +1,7 @@
 const bookReducers = function(state={books:[]}, action) {
 	switch(action.type) {
+		case 'GET_BOOKS':
+			return {...state, books: [...action.payload]}
 		case 'POST_BOOK':
 			return {books: [...state.books, ...action.payload]};
 		case 'DELETE_BOOK':

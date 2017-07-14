@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {postBooks, deleteBooks, updateBooks} from '../../actions/bookActions';
+import {getBooks, postBooks, deleteBooks, updateBooks} from '../../actions/bookActions';
 
 import {Grid, Row, Col, Button} from 'react-bootstrap';
 import BookItem from './BookItem';
@@ -11,6 +11,7 @@ import Cart from '../Cart';
 class BookList extends Component {
 	
 	componentDidMount() {
+		this.props.getBooks();
 		this.props.postBooks([
 			{
 				id: 1,
@@ -82,6 +83,7 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
+		getBooks: getBooks,
 		postBooks: postBooks,
 		deleteBooks: deleteBooks,
 		updateBooks: updateBooks
