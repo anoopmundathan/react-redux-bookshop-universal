@@ -18,6 +18,8 @@ import reducers from './reducers';
 import {postBooks, deleteBooks, updateBooks} from './actions/bookActions';
 import {addToCart} from './actions/cartActions';
 
+import Menu from './components/Menu';
+import Footer from './components/Footer';
 import BookList from './components/pages/bookList';
 
 // Create middleware
@@ -28,8 +30,9 @@ const store = createStore(reducers, middleware);
 
 render(
 	<Provider store={store}>
-		<Router>
-			<Route exact path='/' component={BookList}/>
-		</Router>
+		<div>
+			<Menu /> 
+			<Footer />
+		</div>
 	</Provider>, document.getElementById('root')
 );
