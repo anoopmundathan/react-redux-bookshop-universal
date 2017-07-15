@@ -4,3 +4,10 @@ export const addToCart = (id) => {
 		payload: id
 	}
 }
+export const updateCart = (id, unit) => {
+	return {
+		type: 'UPDATE_CART',
+		id: id,
+		unit: unit
+	}
+}

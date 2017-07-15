@@ -15,9 +15,21 @@ class BookItem extends Component {
 			id: this.props.id,
 			title: this.props.title,
 			description: this.props.description,
-			price: this.props.price
+			price: this.props.price,
+			quantity: 1
 		}];
-		this.props.addToCart(book);
+
+		if(this.props.cart.length > 0) {
+			let id =this.props.id;
+			let cartIndex = this.props.cart.findIndex(cart => cart.id === id);
+			if(cartIndex === -1) {
+				this.props.addToCart(book);
+			} else {
+				this.props.updateCart(id, 1);
+			}
+		} else {
+			this.props.addToCart(book);
+		}
 	}
 
 	render() {
