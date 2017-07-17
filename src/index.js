@@ -23,6 +23,24 @@ const middleware = applyMiddleware(thunk,createLogger());
 // step1 : create store
 const store = createStore(reducers, middleware);
 
+const About = () => {
+	return(
+		<h1>About</h1>
+	);
+}
+
+const Contact = () => {
+	return(
+		<h1>Contact</h1>
+	);
+}
+
+const Admin = () => {
+	return(
+		<h1>Admin</h1>
+	);
+}
+
 const Routes = (
 	<Provider store={store}>
 		<Router>
@@ -30,6 +48,8 @@ const Routes = (
 				<Route exact path="/" component={Menu} />
 				<Route exact path="/" component={BookList} />
 				<Route exact path="/" component={Footer} />
+				<Route exact path="/about" component={About} />
+				<Route exact path="/contacts" component={Contact} />
 			</div>
 		</Router>
 	</Provider>
@@ -38,3 +58,4 @@ const Routes = (
 render(
 	Routes, document.getElementById('root')
 );
+

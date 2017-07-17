@@ -12,30 +12,6 @@ class BookList extends Component {
 	
 	componentDidMount() {
 		this.props.getBooks();
-		this.props.postBooks([
-			{
-				id: 1,
-				title: 'Harry Potter',
-				description: 'First book description',
-				price: 22.32
-			}
-		]);
-		this.props.postBooks([
-			{
-				id: 2,
-				title: 'Harry ',
-				description: 'Second book description',
-				price: 34.32
-			}
-		]);
-		this.props.postBooks([
-			{
-				id: 3,
-				title: 'Blood dimond ',
-				description: 'Third book description',
-				price: 21.32
-			}
-		]);
 		this.props.deleteBooks({
 			id: 2
 		});
@@ -43,7 +19,6 @@ class BookList extends Component {
 			id: 3,
 			title: 'Blood Blood'
 		});
-
 	}
 
 	render() {
@@ -75,11 +50,7 @@ class BookList extends Component {
 	}
 }
 
-const mapStateToProps = state => ( 
-	{
-		books: state.book.books
-	} 
-);
+const mapStateToProps = state => ({ books: state.book.books });
 
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({

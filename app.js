@@ -32,7 +32,6 @@ app.get('/books', function(req, res){
 //-----POST BOOKS----------
 app.post('/books', function(req, res){
   var book = req.body;
-  console.log(book.title);
   Books.create(book, function(err, books){
     if(err){
       throw err;
