@@ -37,9 +37,20 @@ export const postBooks = (book) => {
 }
 
 export const deleteBooks = (id) => {
-	return {
-		type: 'DELETE_BOOK',
-		payload: id
+	return function(dispatch) {
+		axios.delete(`/books/${id}`)
+			.then(response => {
+				dispatch({
+					type: 'DELETE_BOOK',
+					payload: id
+				});
+			})
+			.catch(err => {
+				dispatch({
+					type: 'DELETE_BOOK_REJECTED',
+					payload: err
+				});
+			});
 	}
 }
 

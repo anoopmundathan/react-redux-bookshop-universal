@@ -12,13 +12,6 @@ class BookList extends Component {
 	
 	componentDidMount() {
 		this.props.getBooks();
-		this.props.deleteBooks({
-			id: 2
-		});
-		this.props.updateBooks({
-			id: 3,
-			title: 'Blood Blood'
-		});
 	}
 
 	render() {
