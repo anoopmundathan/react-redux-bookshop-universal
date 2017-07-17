@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Modal, Panel, Col, Row, Well, Button, ButtonGroup, Label} from'react-bootstrap';
-import {updateCart} from '../actions/cartActions';
+import { updateCart, deleteCartItem } from '../actions/cartActions';
 
 class Cart extends Component {
 
@@ -21,16 +21,17 @@ class Cart extends Component {
 		this.setState({showModal: false});
 	}
 
-	onDelete() {
-			const currentBookToDelete = this.props.cart;
-			const indexToDelete = currentBookToDelete.findIndex(cart => cart.id === id);
-			let cartAfterDelete = [...currentBookToDelete.slice(0,indexToDelete), 
-						...currentBookToDelete.slice(indexToDelete +1)];
-			this.props.deleteCartItem(cartAfterDelete);
+	onDelete(id) {
+		const currentBookToDelete = this.props.cart;
+		const indexToDelete = currentBookToDelete.findIndex(cart => cart.id === id);
+		let cartAfterDelete = [...currentBookToDelete.slice(0,indexToDelete), 
+					...currentBookToDelete.slice(indexToDelete +1)];
+		this.props.deleteCartItem(cartAfterDelete);
 	}
+	
 	onIncrement(id){
 		this.props.updateCart(id, 1);
-	 }
+	}
 	
 	onDecrement(id, quantity){
  		if(quantity > 1){
@@ -82,7 +83,11 @@ class Cart extends Component {
 							onClick={this.onIncrement.bind(this, cartArr.id)}>
 							+</Button>
 						<span></span>
-						<Button bsStyle="danger" bsSize="small">DELETE</Button>
+						<Button 
+							bsStyle="danger" 
+							bsSize="small"
+							onClick={this.onDelete.bind(this, cartArr.id)}>
+							DELETE</Button>
 					</ButtonGroup>
 				</Col>
 	          </Row>
@@ -136,7 +141,7 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
-			// deleteCartItem: deleteCartItem,
+		deleteCartItem: deleteCartItem,
     	updateCart: updateCart
 		}, dispatch);
 }

@@ -11,3 +11,10 @@ export const updateCart = (id, unit) => {
 		unit: unit
 	}
 }
+
+export const deleteCartItem = (id) => {
+	return {
+		type: 'DELETE_CART_ITEM',
+		payload: id
+	}
+}
