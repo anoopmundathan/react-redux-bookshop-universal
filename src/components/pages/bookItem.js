@@ -10,7 +10,6 @@ import {postBooks} from '../../actions/bookActions';
 class BookItem extends Component {
 	
 	handleClick() {
-		
 		const book = [...this.props.cart, {
 			id: this.props.id,
 			title: this.props.title,

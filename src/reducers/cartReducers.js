@@ -3,16 +3,19 @@ const cartReducers = function(state={cart: []}, action) {
 	switch(action.type) {
 		case 'ADD_TO_CART':
 			return {...state, 
-				cart:action.payload,
+				cart: action.payload,
 				totalAmount: totals(action.payload).amount,
  				totalQty: totals(action.payload).qty
 			}
 			break;
 		case 'UPDATE_CART':
 			const currentBookToUpdate = [...state.cart];
-			const indexToUpdate = currentBookToUpdate.findIndex(book => {
-				book.id === action.id
-			});
+			console.log(currentBookToUpdate);
+			// console.log(action.id);
+			currentBookToUpdate.forEach(item => console.log(item));
+			const indexToUpdate = currentBookToUpdate.findIndex(book => book.id === action.id);
+			// console.log(indexToUpdate);
+
 			const newBookToUpdate = {
      	 		...currentBookToUpdate[indexToUpdate],
       			quantity: currentBookToUpdate[indexToUpdate].quantity + action.unit

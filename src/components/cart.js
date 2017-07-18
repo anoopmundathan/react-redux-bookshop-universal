@@ -47,10 +47,6 @@ class Cart extends Component {
 		} 
 	}
 
-	componentDidMount() {
-		console.log('Cart', this.props.cart);
-	}
-
   	renderEmpty() {
     	return(<div>Empty Cart</div>)
 	}
@@ -142,7 +138,7 @@ const mapStateToProps = state => (
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
 		deleteCartItem: deleteCartItem,
-    	updateCart: updateCart
+		updateCart: updateCart
 		}, dispatch);
 }
 
