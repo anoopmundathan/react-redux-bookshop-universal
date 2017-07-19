@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production webpack -p --config webpack.config.js",
-    "dev": "webpack -w",
+    "build": "npm run cpy && NODE_ENV=production webpack -p --config webpack.config.js",
+    "cpy": "mkdir ./dist && cp -rf ./public/images ./dist/images",
+    "dev": "npm run cpy && webpack -w",
     "start": "nodemon bin/www & nodemon apiServer.js"
   },
   "devDependencies": {

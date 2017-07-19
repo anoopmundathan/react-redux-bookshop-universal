@@ -52,9 +52,9 @@ class BookForm extends React.Component {
      this.props.deleteBooks(bookId);
   }
 
-  handleSelect() {
+  handleSelect(img) {
     this.setState({
-      img: '/images' + img
+      img: '/images/' + img
     });
   }
 
@@ -95,53 +95,6 @@ class BookForm extends React.Component {
               </DropdownButton>
             </InputGroup>
             <Image src={this.state.img} responsive/>
-          </Panel>
-        </Col>
-
-        <Col xs={12} sm={6}>
-          <Panel>
-            <FormGroup controlId="title">
-              <ControlLabel>Title</ControlLabel>
-              <FormControl
-                  type="text"
-                  placeholder="Enter Title"
-                  ref="title" />
-            </FormGroup>
-
-            <FormGroup
-                controlId="description">
-              <ControlLabel>Description</ControlLabel>
-              <FormControl
-                type="text"
-                placeholder="Enter Description" />
-            </FormGroup>
-
-            <FormGroup controlId="price">
-              <ControlLabel>Price</ControlLabel>
-              <FormControl
-                  type="text"
-                  placeholder="Enter Price"
-                  ref="price" />
-            </FormGroup>
-            <Button
-              onClick={this.handleSubmit.bind(this)}
-              bsStyle="primary">Save book</Button>
-          </Panel>
-
-          <Panel>
-            <FormGroup
-              controlId="formControlsSelect">
-              <ControlLabel>Select a bookid to delete</ControlLabel>
-              <FormControl 
-                ref="delete"
-                componentClass="select" placeholder="select">
-                <option value="select">select</option>
-                {booksList}
-              </FormControl>
-            </FormGroup>
-            <Button
-                onClick={this.onDelete.bind(this)}
-                bsStyle="danger">Delete book</Button>
           </Panel>
         </Col>
       </Row>
