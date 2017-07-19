@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack -p --config webpack.config.js",
-    "dev": "webpack -w & nodemon ./bin/www"
+    "dev": "webpack -w",
+    "start": "nodemon bin/www & nodemon apiServer.js"
   },
   "devDependencies": {
     "html-webpack-plugin": "2.28.0",
@@ -22,6 +23,7 @@
     "cookie-parser": "1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "http-proxy": "1.16.2",
     "jade": "1.11.0",
     "mongoose": "4.11.1",
     "morgan": "1.8.2",
