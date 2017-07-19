@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Modal, Panel, Col, Row, Well, Button, ButtonGroup, Label} from'react-bootstrap';
-import { updateCart, deleteCartItem } from '../actions/cartActions';
+import { updateCart, deleteCartItem, getCart } from '../actions/cartActions';
 
 class Cart extends Component {
 
@@ -11,6 +11,10 @@ class Cart extends Component {
 		this.state = {
 			showModal: false
 		}
+	}
+
+	componentDidMount() {
+		this.props.getCart();
 	}
 
 	open(){
@@ -30,12 +34,12 @@ class Cart extends Component {
 	}
 	
 	onIncrement(id){
-		this.props.updateCart(id, 1);
+		this.props.updateCart(id, 1, this.props.cart);
 	}
 	
 	onDecrement(id, quantity){
  		if(quantity > 1){
- 			this.props.updateCart(id, -1);
+ 			this.props.updateCart(id, -1, this.props.cart);
  		}
  	}
 
@@ -138,7 +142,8 @@ const mapStateToProps = state => (
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
 		deleteCartItem: deleteCartItem,
-		updateCart: updateCart
+		updateCart: updateCart,
+		getCart: getCart
 		}, dispatch);
 }
 

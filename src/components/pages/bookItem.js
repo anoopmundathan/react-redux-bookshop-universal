@@ -24,7 +24,7 @@ class BookItem extends Component {
 			if(cartIndex === -1) {
 				this.props.addToCart(book);
 			} else {
-				this.props.updateCart(id, 1);
+				this.props.updateCart(id, 1, this.props.cart);
 			}
 		} else {
 			this.props.addToCart(book);
