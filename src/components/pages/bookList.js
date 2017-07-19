@@ -21,7 +21,8 @@ class BookList extends Component {
 				<BookItem 
 					id={book._id} 
 					title={book.title} 
-					price={book.price} 
+					price={book.price}
+					images={book.images}
 					description={book.description} />
 				</Col>
 			)

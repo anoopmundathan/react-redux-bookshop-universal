@@ -102,6 +102,29 @@ app.put('/books/:_id', function(req, res) {
   });
 });
 
+// ---> GET BOOKS IMAGES API --
+app.get('/images', function(req, res) {
+  var imageFolder = __dirname + '/public/images';
+  var fs = require('fs');
+  
+  fs.readdir(imageFolder, function(err, images) {
+    
+    if (err) {
+      return console.error(err);
+    }
+
+    var imageArray = [];
+    images.forEach(function(image) {
+      imageArray.push({
+        name: image
+      });
+    });
+
+    // Send the json response with the array
+    res.json(imageArray);
+  });
+});
+
 app.listen(3001, function(err) {
     if(err) {
         return console.log(err);
