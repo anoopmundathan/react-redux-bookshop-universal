@@ -18,7 +18,6 @@ export const getCart = () => {
 		});
 	}
 }
-
 // ADD TO CART
 export const addToCart = (cart) => {
 	return function(dispatch) {
@@ -37,7 +36,7 @@ export const addToCart = (cart) => {
 		});
 	}
 }
-
+// UPDATE CART
 export const updateCart = (id, unit, cart) => {
 	// Create a copy of the current array of books
 	const currentBookToUpdate = cart;
@@ -68,7 +67,21 @@ export const updateCart = (id, unit, cart) => {
 		});
 	}
 }
-
-export const deleteCartItem = (id) => {
-	
+// DELETE CART
+export const deleteCartItem = (cart) => {
+	return function(dispatch) {
+		axios.post('/api/cart', cart)
+		.then(response => {
+			dispatch({
+				type: 'DELETE_CART_ITEM',
+				payload: response.data
+			});
+		})
+		.catch(err => {
+			dispatch({
+				type: 'DELETE_CART_ITEM_REJECTED',
+				msg: 'error when deleting an item from the the cart'
+			});
+		});
+	}
 }
