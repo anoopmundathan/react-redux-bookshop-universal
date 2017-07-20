@@ -107,28 +107,37 @@ class BookForm extends React.Component {
         </Col>
       </Row>
         <Panel>
-          <FormGroup controlId="title">
+          <FormGroup 
+            controlId="title"
+            validationState={this.props.validation}>
             <ControlLabel>Title</ControlLabel>
               <FormControl
                 type="text"
                 placeholder="Enter Title"
                 ref="title" />
+                <FormControl.Feedback/>
           </FormGroup>
 
-          <FormGroup controlId="description">
+          <FormGroup 
+            controlId="description"
+            validationState={this.props.validation}>
             <ControlLabel>Description</ControlLabel>
             <FormControl
                 type="text"
                 placeholder="EnterDescription"
                 ref="description" />
+            <FormControl.Feedback/>
           </FormGroup>
           
-          <FormGroup controlId="price">
+          <FormGroup 
+            controlId="price"
+            validationState={this.props.validation}>
             <ControlLabel>Price</ControlLabel>
             <FormControl
                 type="text"
                 placeholder="Enter Price"
                 ref="price" />
+            <FormControl.Feedback/>
             </FormGroup>
 
           <Button
@@ -163,7 +172,8 @@ const mapStateToProps = state => (
 	{
     books: state.book.books,
     msg: state.book.msg,
-    style: state.book.style
+    style: state.book.style,
+    validation: state.book.validation
 	} 
 );
 const mapDispatchToProps = dispatch => bindActionCreators({

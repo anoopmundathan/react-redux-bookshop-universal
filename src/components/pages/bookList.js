@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getBooks, postBooks, deleteBooks, updateBooks} from '../../actions/bookActions';
 
-import {Grid, Row, Col, Button} from 'react-bootstrap';
+import {Carousel, Grid, Row, Col, Button} from 'react-bootstrap';
 import BookItem from './BookItem';
 import BookForm from './BookForm';
 import Cart from '../Cart';
@@ -30,6 +30,29 @@ class BookList extends Component {
 
 		return(
 			<Grid>
+				<Row>
+					<Carousel>
+						<Carousel.Item>
+							<img width={900}
+								height={300} alt="900x300"
+								src="/images/home1.jpg"/>
+							<Carousel.Caption>
+								<h3>First slide label</h3>
+								<p>Nulla vitae elitlibero, a pharetra augue mollis interdum.</p>
+							</Carousel.Caption>
+						</Carousel.Item>
+						<Carousel.Item>
+							<img width={900} 
+								height={300} 
+								alt="900x300"
+								src="/images/home2.jpg"/>
+							<Carousel.Caption>
+								<h3>Second slide label</h3>
+								<p>Lorem ipsum dolor sitamet, consectetur adipiscing elit.</p>
+							</Carousel.Caption>
+						</Carousel.Item>
+					</Carousel>
+				</Row>
 				<Row>
 					<Cart/>
 				</Row>
