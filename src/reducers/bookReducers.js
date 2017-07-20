@@ -3,7 +3,19 @@ const bookReducers = function(state={books:[]}, action) {
 		case 'GET_BOOKS':
 			return {...state, books: [...action.payload]}
 		case 'POST_BOOK':
-			return {books: [...state.books, ...action.payload]};
+			return {
+				...state,
+				books: [...state.books, ...action.payload],
+				msg: 'Saved! Click to continue',
+				style: 'success'
+			}
+			break;
+		case 'POST_BOOK_REJECTED':
+			return {...state, msg: 'Please try again', style: 'danger'}
+			break;
+		case 'RESET_BUTTON':
+			return {...state, msg: null, style: 'primary'}
+			break;
 		case 'DELETE_BOOK':
 			const currentBookToDelete = [...state.books];
 			const indexToDelete = currentBookToDelete.findIndex(book => book.id === action.payload.id);
