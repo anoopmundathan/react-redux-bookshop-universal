@@ -17,6 +17,10 @@ import Menu from './components/menu';
 import Footer from './components/footer';
 import BookList from './components/pages/bookList';
 
+import Main from './components/main';
+import Cart from './components/cart';
+import BookForm from './components/pages/bookForm';
+
 // Create middleware
 const middleware = applyMiddleware(thunk,createLogger());
 
@@ -41,15 +45,29 @@ const Admin = () => {
 	);
 }
 
+// const Routes = (
+// 	<Provider store={store}>
+// 		<Router>
+// 			<div>
+// 				<Route exact path="/" component={Menu} />
+// 				<Route exact path="/" component={BookList} />
+// 				<Route exact path="/" component={Footer} />
+// 				<Route exact path="/about" component={About} />
+// 				<Route exact path="/contacts" component={Contact} />
+// 			</div>
+// 		</Router>
+// 	</Provider>
+// );
+
 const Routes = (
 	<Provider store={store}>
 		<Router>
 			<div>
-				<Route exact path="/" component={Menu} />
+				<Route path="/" component={Menu} />  
 				<Route exact path="/" component={BookList} />
-				<Route exact path="/" component={Footer} />
-				<Route exact path="/about" component={About} />
-				<Route exact path="/contacts" component={Contact} />
+				<Route path="/" component={Footer} /> 
+				<Route exact path="/admin" component={BookForm} />
+				<Route exact path="/cart" component={Cart} />
 			</div>
 		</Router>
 	</Provider>

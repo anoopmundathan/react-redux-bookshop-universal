@@ -2,11 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getBooks, postBooks, deleteBooks, updateBooks} from '../../actions/bookActions';
-
 import {Carousel, Grid, Row, Col, Button} from 'react-bootstrap';
 import BookItem from './BookItem';
-import BookForm from './BookForm';
-import Cart from '../Cart';
 
 class BookList extends Component {
 	
@@ -33,19 +30,16 @@ class BookList extends Component {
 				<Row>
 					<Carousel>
 						<Carousel.Item>
-							<img width={900}
-								height={300} alt="900x300"
-								src="/images/home1.jpg"/>
+							<img alt="Image1"
+								src="/images/image1.jpg"/>
 							<Carousel.Caption>
 								<h3>First slide label</h3>
 								<p>Nulla vitae elitlibero, a pharetra augue mollis interdum.</p>
 							</Carousel.Caption>
 						</Carousel.Item>
 						<Carousel.Item>
-							<img width={900} 
-								height={300} 
-								alt="900x300"
-								src="/images/home2.jpg"/>
+							<img alt="Image2"
+								src="/images/image2.jpeg"/>
 							<Carousel.Caption>
 								<h3>Second slide label</h3>
 								<p>Lorem ipsum dolor sitamet, consectetur adipiscing elit.</p>
@@ -54,12 +48,9 @@ class BookList extends Component {
 					</Carousel>
 				</Row>
 				<Row>
-					<Cart/>
+					<div></div>
 				</Row>
 				<Row>
-					<Col xs={12} sm={6}>
-						<BookForm/>
-					</Col>
 					{booksList}
 				</Row>
 			</Grid>

@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run cpy && NODE_ENV=production webpack -p --config webpack.config.js",
-    "cpy": "mkdir ./dist && cp -rf ./public/images ./dist/images",
+    "cpy:style": "cp -rf ./public/stylesheets ./dist/stylesheets",
+    "precpy": "rm -rf dist",
+    "cpy": "mkdir ./dist && cp -rf ./public/images ./dist/images && npm run cpy:style",
     "dev": "npm run cpy && webpack -w",
     "start": "nodemon bin/www & nodemon apiServer.js"
   },
