@@ -1,3 +1,5 @@
+"use strict"
+
 // REACT
 import React from 'react';
 import {render} from 'react-dom';
@@ -13,7 +15,6 @@ import reducers from './reducers';
 import {postBooks, deleteBooks, updateBooks} from './actions/bookActions';
 import {addToCart} from './actions/cartActions';
 
-import Menu from './components/menu';
 import Footer from './components/footer';
 import BookList from './components/pages/bookList';
 
@@ -45,25 +46,11 @@ const Admin = () => {
 	);
 }
 
-// const Routes = (
-// 	<Provider store={store}>
-// 		<Router>
-// 			<div>
-// 				<Route exact path="/" component={Menu} />
-// 				<Route exact path="/" component={BookList} />
-// 				<Route exact path="/" component={Footer} />
-// 				<Route exact path="/about" component={About} />
-// 				<Route exact path="/contacts" component={Contact} />
-// 			</div>
-// 		</Router>
-// 	</Provider>
-// );
-
 const Routes = (
 	<Provider store={store}>
 		<Router>
 			<div>
-				<Route path="/" component={Menu} />  
+				<Route path="/" component={Main} />  
 				<Route exact path="/" component={BookList} />
 				<Route path="/" component={Footer} /> 
 				<Route exact path="/admin" component={BookForm} />
@@ -76,4 +63,3 @@ const Routes = (
 render(
 	Routes, document.getElementById('root')
 );
-

@@ -1,12 +1,13 @@
 "use strict"
-import React from 'react';
-import Menu from './menu';
-import Footer from './footer';
-import{connect} from 'react-redux';
+
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
+import Menu from './menu';
 import {getCart} from '../actions/cartActions';
 
-class Main extends React.Component{
+class Main extends Component{
     
     componentDidMount(){
         this.props.getCart();
@@ -18,7 +19,6 @@ class Main extends React.Component{
             <Menu
                 cartItemsNumber={this.props.totalQty} />
                 {this.props.children}
-            <Footer/>
         </div>
       );
     }
@@ -37,5 +37,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
-
-
