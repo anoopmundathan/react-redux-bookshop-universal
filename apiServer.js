@@ -33,7 +33,7 @@ app.post('/cart', function(req, res){
   req.session.cart = cart;
   req.session.save(function(err){
     if(err){
-      throw err;
+      console.log('# API POST SESSION:');
     }
     res.json(req.session.cart);
   });
@@ -53,7 +53,7 @@ var Books = require('./models/books.js');
 app.get('/books', function(req, res){
   Books.find(function(err, books){
     if(err){
-      throw err;
+      console.log('# API GET BOOKS:', err);
     }
     res.json(books);
   })
@@ -64,7 +64,7 @@ app.post('/books', function(req, res){
   var book = req.body;
   Books.create(book, function(err, books){
     if(err){
-      throw err;
+      console.log('# API POST BOOKS:', err);
     }
     res.json(books);
  }) });
@@ -73,11 +73,9 @@ app.post('/books', function(req, res){
 app.delete('/books/:_id', function(req, res) {
   var query = {_id: req.params._id};
   
-  console.log(query);
-
   Books.remove(query, function(err, books){
     if(err){
-      throw err; 
+      console.log('# API DELETE BOOKS:', err);
     }
     res.json(books);
   });
@@ -99,7 +97,7 @@ app.put('/books/:_id', function(req, res) {
   var options = {new: true};
   Books.findOneAndUpdate(query, update,options, function(err, books){
       if(err){
-        throw err;
+        console.log('# API UPDATE BOOKS:', err);
       }
       res.json(books);
   });
@@ -118,11 +116,12 @@ app.get('/images', function(req, res) {
 
     var imageArray = [];
     images.forEach(function(image) {
-      imageArray.push({
-        name: image
-      });
+      if (image.slice(0, 1) !== '.'){
+        imageArray.push({
+          name: image
+        });
+      }
     });
-
     // Send the json response with the array
     res.json(imageArray);
   });
