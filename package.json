@@ -12,6 +12,9 @@
     "dev:server": "nodemon bin/www & nodemon apiServer.js",
     "start": "npm run build && node bin/www & node apiServer.js"
   },
+  "engines": {
+    "node": "v8.0.0"
+  },
   "devDependencies": {
     "redux-logger": "3.0.6"
   },
