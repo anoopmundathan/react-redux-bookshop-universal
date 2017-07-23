@@ -15,9 +15,7 @@
   "engines": {
     "node": "v8.0.0"
   },
-  "devDependencies": {
-    "redux-logger": "3.0.6"
-  },
+  "devDependencies": {},
   "dependencies": {
     "axios": "0.16.2",
     "babel-core": "6.24.1",
@@ -41,6 +39,7 @@
     "react-redux": "5.0.5",
     "react-router-dom": "4.1.1",
     "redux": "3.6.0",
+    "redux-logger": "3.0.6",
     "redux-thunk": "2.2.0",
     "serve-favicon": "2.4.3",
     "webpack": "2.6.1"
