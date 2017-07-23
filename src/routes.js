@@ -7,8 +7,8 @@ import {render} from 'react-dom';
 // REACT ROUTER
 import { Route, Switch} from 'react-router-dom';
 
-import Menu from './components/menu';
-import Footer from './components/footer';
+import Menu from './components/Menu';
+import Footer from './components/Footer';
 
 import BookList from './components/pages/bookList';
 import Cart from './components/cart';
