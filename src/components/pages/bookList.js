@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getBooks, postBooks, deleteBooks, updateBooks} from '../../actions/bookActions';
 import {Carousel, Grid, Row, Col, Button} from 'react-bootstrap';
-import BookItem from './BookItem';
+import BookItem from './bookItem';
 
 class BookList extends Component {
 	
