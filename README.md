@@ -1,11 +1,11 @@
-# react-redux-bookshop
+# react-redux-bookshop_universal
 > Created as part of Udemy React Redux Course 
 
 ## Getting Started
 ### Setup
 ```
-$ git clone https://github.com/anoopmundathan/react-redux-bookshop.git
-$ cd react-redux-bookshop
+$ git clone https://github.com/anoopmundathan/react-redux-bookshop_universal.git
+$ cd react-redux-bookshop_universal
 ```
 ### Building
 Install dependencies:
@@ -13,6 +13,6 @@ Install dependencies:
 $ npm install
 ```
 #### npm scripts
-```$ npm run dev``` - Run node server - webpack watch mode
+```$ npm start``` - Run build and start web & api server
 
-```$ npm run build``` - Run node server - webpack production mode
+Goto ```http://localhost:3000``` in browser to view app
