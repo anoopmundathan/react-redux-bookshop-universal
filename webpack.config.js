@@ -1,6 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const config = {
 	entry: './src/client.js',
 	output: {
@@ -19,27 +17,7 @@ const config = {
 				}
 			}
 		]
-	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: './public/index.html'
-		})
-	]
-}
-
-if(process.env.NODE_ENV === 'production') {
-	
-	// Minify html
-	config.plugins[0].options.minify = {
-				collapseWhitespace: true,
-        		removeComments: true,
-        		removeRedundantAttributes: true,
-        		removeScriptTypeAttributes: true,
-        		removeStyleLinkTypeAttributes: true
 	}
-
-	// Remove sourcemap
-	config.devtool = '';
 }
 
 module.exports = config;
